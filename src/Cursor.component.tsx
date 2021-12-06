@@ -37,7 +37,7 @@ export const Cursor: React.FC<CursorProps> = ({
     };
   }, [onMouseDown, onMouseUp]);
 
-  const cursorStyles: { [key: string]: React.CSSProperties } = useMemo(
+  const cursorStyles = useMemo(
     () => ({
       cursor: {
         position: 'fixed',
@@ -46,7 +46,7 @@ export const Cursor: React.FC<CursorProps> = ({
         transform: 'translate3d(-50%, -50%, 0)',
         willChange: 'transform',
         zIndex,
-      },
+      } as React.CSSProperties,
       shape: {
         display: 'flex',
         justifyContent: 'center',
@@ -59,13 +59,13 @@ export const Cursor: React.FC<CursorProps> = ({
         transition: 'all 0.4s cubic-bezier(0.19, 1, 0.22, 1)',
         backfaceVisibility: 'hidden',
         willChange: 'transform, width, height, opacity',
-      },
+      } as React.CSSProperties,
     }),
     [color, opacity, radius, size, zIndex],
   );
 
   return (
-    <div ref={cursorElement} style={cursorStyles.outer} className={`skits-cursor ${className}`}>
+    <div ref={cursorElement} style={cursorStyles.cursor} className={`skits-cursor ${className}`}>
       <div style={cursorStyles.shape} className="skits-cursor__shape"></div>
     </div>
   );
