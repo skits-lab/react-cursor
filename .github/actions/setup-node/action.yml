@@ -1,0 +1,30 @@
+name: "Setup Node"
+description: "Reconfigure git to use HTTP authentication and setup node with cached dependencies"
+runs:
+  using: "composite"
+  steps:
+    # HTTP auth is needed for packages that reference git repos
+    - name: Reconfigure git to use HTTP authentication
+      shell: bash
+      run: >
+        git config --global url."https://github.com/".insteadOf
+        ssh://git@github.com/
+
+    - name: Setup Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: "14"
+        cache: "npm"
+
+    - name: Cache dependencies
+      id: cache-node-modules
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+    - name: Install dependencies
+      shell: bash
+      # TODO: enable 'if' when composite actions support it
+      # if: steps.cache-node-modules.outputs.cache-hit != 'true'
+      run: npm ci
