@@ -1,3 +1,11 @@
+### [1.0.1](https://github.com/skits-lab/react-cursor/compare/v1.0.0...v1.0.1) (2021-12-06)
+
+
+### :bug: Bug Fixes
+
+* **cursor:** make component zIndex prop optional ([333f7bb](https://github.com/skits-lab/react-cursor/commit/333f7bb6928ae16c9a77d05352f8ef1bfefeb51f))
+* **cursor:** use correct style key ([88f6a1c](https://github.com/skits-lab/react-cursor/commit/88f6a1c91aea86fb00fa86ea572cb75aeee229f0))
+
 ## 1.0.0 (2021-12-06)
 
 
