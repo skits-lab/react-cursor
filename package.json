@@ -1,6 +1,6 @@
 {
   "name": "@skits/react-cursor",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "license": "MIT",
   "description": "React animated cursor component",
   "keywords": [
