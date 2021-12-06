@@ -6,7 +6,7 @@ type CursorProps = {
   opacity?: number;
   color?: string;
   radius?: string;
-  zIndex: number;
+  zIndex?: number;
   className?: string;
   onMouseDown?: (cursorElement: HTMLDivElement, shapeElement: HTMLDivElement) => void;
   onMouseUp?: (cursorElement: HTMLDivElement, shapeElement: HTMLDivElement) => void;
